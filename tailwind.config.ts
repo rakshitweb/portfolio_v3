@@ -15,6 +15,19 @@ export default {
         lg: "1200px",
         xl: "1536px",
       },
+      width: {
+        sm: "600px",
+        md: "900px",
+        lg: "1200px",
+        xl: "1536px",
+      },
+      fontSize: {
+        base: "1.6rem",
+      },
+      colors: {
+        primary: "rgb(var(--primary))",
+        text: "rgb(var(--text))",
+      },
       backgroundColor: {
         background: "rgba(var(--background), <alpha-value>)",
         ball: "rgba(var(--ball), <alpha-value>)",
