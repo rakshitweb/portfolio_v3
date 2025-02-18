@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { RandomBackground } from "@/components";
 
 export const metadata: Metadata = {
   title: "Rakshit Agrawal | Full Stack Developer",
@@ -13,7 +14,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="relative bg-background">
+        <RandomBackground />
+        <main className="relative h-[100vh] w-full backdrop-filter backdrop-blur-[10rem] z-0">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
