@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url(../fonts/fonts.css);
+
+:root {
+  --background: 0, 0, 0;
+  --primary: 251, 37, 118;
+  --secondary: 63, 0, 113;
+  --ball: 21, 0, 80;
+  --text: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: 255, 255, 255;
+    --ball: 205, 193, 255;
+    --text: 0, 0, 0;
+  }
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Comfortaa", sans-serif;
+  min-height: 100vh;
+}
