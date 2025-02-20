@@ -12,13 +12,12 @@ export function HeroSection() {
 
   return (
     <>
-      {showAnimation ? (
+      {showAnimation && (
         <WelcomeScreen
           onWelcomeAnimationComplete={onWelcomeAnimationComplete}
         />
-      ) : (
-        <h1 className="text-text text-[40rem]">Hi there</h1>
       )}
+      <h1 className="content text-text text-[4rem]">Hi there</h1>
     </>
   );
 }

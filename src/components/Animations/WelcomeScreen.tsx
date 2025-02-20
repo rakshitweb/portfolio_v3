@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 gsap.registerPlugin(useGSAP);
 
 const LANGUAGES = ["Hello", "नमस्ते", "Hola", "Bonjour", "こんにちは"];
-const INTERVAL = 1000;
+const INTERVAL = 1200;
 let intervalID: NodeJS.Timeout | undefined = undefined;
 let bodyTag: HTMLElement | null = null;
 
@@ -79,11 +79,11 @@ export function WelcomeScreen({
   return (
     <section
       ref={sectionRef}
-      className="bg-background fixed z-10 flex justify-center items-center w-full h-full"
+      className="bg-background fixed flex justify-center items-center w-full h-full"
     >
       <h3
         ref={welcomeTextRef}
-        className="relative z-10 text-primary text-[4.5rem] lg:text-[6rem] pl-10 before:content-[''] before:absolute before:top-[50%] before:left-0 before:translate-y-[-50%] before:w-4 before:h-4 before:bg-primary before:rounded-[100%]"
+        className="content relative text-primary text-[4.5rem] lg:text-[6rem] pl-10 before:content-[''] before:absolute before:top-[50%] before:left-0 before:translate-y-[-50%] before:w-4 before:h-4 before:bg-primary before:rounded-[100%]"
       >
         {LANGUAGES[languageIndex]}
       </h3>

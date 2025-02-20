@@ -35,6 +35,8 @@ export default {
       },
       zIndex: {
         backdrop: "-1",
+        content: "0",
+        "mouse-pointer": "1250",
       },
       animation: {
         "ball-move":
