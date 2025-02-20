@@ -1,12 +1,20 @@
-export function Logo({
-  width = 48,
-  height = 48,
-}: {
-  width?: number | string;
-  height?: number | string;
-}) {
+import { forwardRef } from "react";
+
+export const Logo = forwardRef<
+  SVGSVGElement,
+  {
+    width?: number | string;
+    height?: number | string;
+  }
+>(({ width = 48, height = 48 }, ref) => {
   return (
-    <svg width={width} height={height} fill="none" viewBox="0 0 48 48">
+    <svg
+      ref={ref}
+      width={width}
+      height={height}
+      fill="none"
+      viewBox="0 0 48 48"
+    >
       <defs>
         <linearGradient
           id="primary-gradient"
@@ -33,4 +41,6 @@ export function Logo({
       ></path>
     </svg>
   );
-}
+});
+
+Logo.displayName = "Logo";

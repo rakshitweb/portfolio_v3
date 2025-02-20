@@ -27,6 +27,7 @@ export default {
       colors: {
         primary: "rgb(var(--primary))",
         text: "rgb(var(--text))",
+        ball: "rgba(var(--ball), <alpha-value>)",
       },
       backgroundColor: {
         background: "rgba(var(--background), <alpha-value>)",

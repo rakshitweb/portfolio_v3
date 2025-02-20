@@ -1,11 +1,13 @@
+import { Ball } from "../SVG";
+
 export function RandomBackground() {
   const commonClasses =
-    "absolute w-[35rem] h-[35rem] lg:w-[45rem] lg:h-[45rem] rounded-full bg-ball lg:[--animation-duration: 20s]";
+    "absolute z-backdrop w-[80rem] h-[80rem] lg:w-[100rem] lg:h-[100rem] rounded-full fill-ball lg:[--animation-duration: 20s] translate-x-[-50%] translate-y-[-50%]";
 
   return (
     <div className="absolute z-backdrop h-full w-full overflow-hidden">
-      <div className={`${commonClasses} animate-ball-move`} />
-      <div className={`${commonClasses} animate-ball-move-inverted`} />
+      <Ball className={`${commonClasses} animate-ball-move`} />
+      <Ball className={`${commonClasses} animate-ball-move-inverted`} />
     </div>
   );
 }
