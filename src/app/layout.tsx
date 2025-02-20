@@ -17,7 +17,7 @@ export default function RootLayout({
       <body className="relative bg-background">
         <RandomBackground />
         <main className="relative h-[100vh] w-full backdrop-filter backdrop-blur-[10rem] z-0">
-          <Navbar />
+          {/* <Navbar /> */}
           {children}
         </main>
       </body>
