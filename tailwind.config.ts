@@ -22,7 +22,8 @@ export default {
         xl: "1536px",
       },
       fontSize: {
-        base: "1.6rem",
+        base: ["1.6rem", "2.2rem"],
+        sm: ["1.4rem", "2rem"],
       },
       colors: {
         primary: "rgba(var(--primary), <alpha-value>)",
@@ -44,6 +45,8 @@ export default {
       zIndex: {
         backdrop: "-1",
         content: "0",
+        navbar: "1000",
+        overlay: "1100",
         "mouse-pointer": "1250",
       },
       animation: {

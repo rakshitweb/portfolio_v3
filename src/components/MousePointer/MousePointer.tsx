@@ -111,7 +111,7 @@ export function MousePointer() {
     <>
       <div
         ref={outerCursorRef}
-        className="hidden cursor-outer z-mouse-pointer fixed left-0 top-0 pointer-events-none w-[5rem] aspect-square border-2 border-solid border-primary rounded-full transition-all duration-100"
+        className="hidden cursor-outer fixed z-mouse-pointer left-0 top-0 pointer-events-none w-[5rem] aspect-square border-2 border-solid border-primary rounded-full transition-all duration-100"
       />
       <div
         ref={innerCursorRef}

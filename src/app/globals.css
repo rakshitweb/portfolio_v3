@@ -14,6 +14,12 @@
   --shadow-frost: 255, 255, 255;
 }
 
+/* :root {
+  --background: 255, 223, 223;
+  --ball: 255, 192, 217;
+  --text: 0, 0, 0;
+  --shadow-frost: null;
+} */
 @media (prefers-color-scheme: light) {
   :root {
     --background: 255, 223, 223;
@@ -55,4 +61,12 @@ body {
 
 .cursor-inner.active {
   display: none;
+}
+
+.vertical-lr {
+  writing-mode: vertical-lr;
+}
+
+.sideways-lr {
+  writing-mode: sideways-lr;
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { MousePointer, Navbar, RandomBackground } from "@/components";
+import { MousePointer, Navbar, RandomBackground, Wrapper } from "@/components";
 
 export const metadata: Metadata = {
   title: "Rakshit Agrawal | Full Stack Developer",
@@ -16,11 +16,11 @@ export default function RootLayout({
     <html lang="en">
       <body className="relative bg-background">
         <RandomBackground />
-        <main className="relative h-[100vh] overflow-auto w-full z-content">
-          {/* <Navbar /> */}
+        <MousePointer />
+        {/* <Navbar /> */}
+        <Wrapper className="relative px-4 sm:px-8 md:px-[10rem] h-[100vh] overflow-auto z-content">
           {children}
-          <MousePointer />
-        </main>
+        </Wrapper>
       </body>
     </html>
   );

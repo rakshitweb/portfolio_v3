@@ -55,7 +55,7 @@ const NavLinkList = ({
       <li key={link.id} className="px-6" onClick={onClick}>
         <Link
           href={link.href}
-          className="text-base text-text capitalize hover:text-primary transition-all duration-150"
+          className="text-sm text-text capitalize hover:text-primary transition-all duration-150"
         >
           {(index + 1).toString().padStart(2, "0")}. {link.label}
         </Link>
@@ -96,7 +96,6 @@ export function Navbar() {
 
     function handleDrawerOnResize() {
       if (openDrawer) setOpenDrawer(false);
-      console.log("coming");
     }
 
     document.addEventListener("scroll", handleDrawerOnScroll);
@@ -125,29 +124,27 @@ export function Navbar() {
   };
 
   return (
-    <nav className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-md">
-      <Wrapper className="py-2 lg:py-4 flex justify-between gap-4 items-stretch">
-        <Link href="/">
-          <Logo />
-        </Link>
-        <Hamburger
-          ref={hamburgerRef}
-          onClick={handleHamburgerClick}
-          className="relative cursor-pointer md:hidden"
+    <nav className="fixed top-0 z-navbar w-full px-4 sm:px-8 py-2 lg:py-4 flex justify-between gap-4 items-stretch bg-white bg-opacity-10 backdrop-filter backdrop-blur-md">
+      <Link href="/">
+        <Logo />
+      </Link>
+      <Hamburger
+        ref={hamburgerRef}
+        onClick={handleHamburgerClick}
+        className="relative cursor-pointer md:hidden"
+      />
+      <NavLinkList className="hidden md:flex items-center" />
+      {openDrawer && (
+        <NavLinkList
+          ref={drawerRef}
+          onClick={() => setOpenDrawer(false)}
+          className="bg-white bg-opacity-15 p-3 rounded-md absolute flex flex-col gap-2"
+          style={{
+            top: navLinkLocation.top + "px",
+            right: navLinkLocation.right + "px",
+          }}
         />
-        <NavLinkList className="hidden md:flex items-center" />
-        {openDrawer && (
-          <NavLinkList
-            ref={drawerRef}
-            onClick={() => setOpenDrawer(false)}
-            className="bg-white bg-opacity-15 p-3 rounded-md absolute flex flex-col gap-2"
-            style={{
-              top: navLinkLocation.top + "px",
-              right: navLinkLocation.right + "px",
-            }}
-          />
-        )}
-      </Wrapper>
+      )}
     </nav>
   );
 }
