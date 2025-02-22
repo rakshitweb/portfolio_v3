@@ -12,8 +12,8 @@ export function MousePointer() {
   const mouse = useRef({ x: 0, y: 0 });
   const previousMouse = useRef({ x: 0, y: 0 });
   const circle = useRef({ x: 0, y: 0 });
-  let currentScale = useRef(0);
-  let currentAngle = useRef(0);
+  const currentScale = useRef(0);
+  const currentAngle = useRef(0);
   const speed = 0.17;
 
   useEffect(() => {

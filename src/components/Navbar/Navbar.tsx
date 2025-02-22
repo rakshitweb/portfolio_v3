@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { Hamburger, Logo } from "../SVG";
-import { Wrapper } from "../Wrapper";
 import {
   MouseEventHandler,
   RefObject,
