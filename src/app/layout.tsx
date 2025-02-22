@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="relative bg-background">
         <RandomBackground />
-        <main className="relative h-[100vh] w-full z-content">
+        <main className="relative h-[100vh] overflow-auto w-full z-content">
           {/* <Navbar /> */}
           {children}
           <MousePointer />

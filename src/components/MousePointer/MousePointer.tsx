@@ -19,6 +19,13 @@ export function MousePointer() {
   useEffect(() => {
     if (window.navigator.maxTouchPoints > 0) {
       setIsTouchScreen(true);
+    } else {
+      if (outerCursorRef.current) {
+        outerCursorRef.current.classList.remove("hidden");
+      }
+      if (innerCursorRef.current) {
+        innerCursorRef.current.classList.remove("hidden");
+      }
     }
   }, []);
 
@@ -68,6 +75,24 @@ export function MousePointer() {
         innerCursorRef.current.style.transform = `${translateTransform} ${rotateTransform} ${scaleTransform}`;
       }
 
+      if (outerCursorRef.current && innerCursorRef.current) {
+        const mouseOverElement = document.elementFromPoint(
+          circle.current.x,
+          circle.current.y,
+        );
+
+        if (
+          mouseOverElement &&
+          mouseOverElement.classList.contains("content")
+        ) {
+          outerCursorRef.current.classList.add("active");
+          innerCursorRef.current.classList.add("active");
+        } else {
+          outerCursorRef.current.classList.remove("active");
+          innerCursorRef.current.classList.remove("active");
+        }
+      }
+
       requestAnimationFrame(tick);
     };
 
@@ -78,39 +103,6 @@ export function MousePointer() {
     };
   }, []);
 
-  useEffect(() => {
-    function onMouseEnter() {
-      if (outerCursorRef.current) {
-        outerCursorRef.current.classList.add("active");
-      }
-      if (innerCursorRef.current) {
-        innerCursorRef.current.classList.add("active");
-      }
-    }
-    function onMouseLeave() {
-      if (outerCursorRef.current) {
-        outerCursorRef.current.classList.remove("active");
-      }
-      if (innerCursorRef.current) {
-        innerCursorRef.current.classList.remove("active");
-      }
-    }
-
-    const contentElements = document.querySelectorAll<HTMLElement>(".content");
-    console.log(contentElements);
-    contentElements.forEach((element: HTMLElement) => {
-      element.addEventListener("mouseenter", onMouseEnter);
-      element.addEventListener("mouseleave", onMouseLeave);
-    });
-
-    return () => {
-      contentElements.forEach((element: HTMLElement) => {
-        element.removeEventListener("mouseenter", onMouseEnter);
-        element.removeEventListener("mouseleave", onMouseLeave);
-      });
-    };
-  });
-
   if (isTouchScreen) {
     return null;
   }
@@ -119,11 +111,11 @@ export function MousePointer() {
     <>
       <div
         ref={outerCursorRef}
-        className="cursor-outer z-mouse-pointer fixed left-0 top-0 pointer-events-none w-[5rem] aspect-square border-2 border-solid border-primary rounded-full transition-all duration-100"
+        className="hidden cursor-outer z-mouse-pointer fixed left-0 top-0 pointer-events-none w-[5rem] aspect-square border-2 border-solid border-primary rounded-full transition-all duration-100"
       />
       <div
         ref={innerCursorRef}
-        className="cursor-inner fixed z-mouse-pointer left-0 top-0 w-4 aspect-square bg-primary rounded-full pointer-events-none transition-all duration-120"
+        className="hidden cursor-inner fixed z-mouse-pointer left-0 top-0 w-4 aspect-square bg-primary rounded-full pointer-events-none transition-all duration-110"
       />
     </>
   );

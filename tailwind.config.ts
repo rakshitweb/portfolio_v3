@@ -25,13 +25,21 @@ export default {
         base: "1.6rem",
       },
       colors: {
-        primary: "rgb(var(--primary))",
+        primary: "rgba(var(--primary), <alpha-value>)",
+        secondary: "rgba(var(--secondary), <alpha-value>)",
         text: "rgb(var(--text))",
         ball: "rgba(var(--ball), <alpha-value>)",
       },
       backgroundColor: {
         background: "rgba(var(--background), <alpha-value>)",
         ball: "rgba(var(--ball), <alpha-value>)",
+        card: "rgba(var(--card), <alpha-value>)",
+      },
+      boxShadow: {
+        card: "0 0 1rem 0.15rem currentColor, inset 0 0 0.75rem 0.15rem currentColor",
+      },
+      boxShadowColor: {
+        frost: "rgba(var(--shadow-frost), <alpha-value>)",
       },
       zIndex: {
         backdrop: "-1",
