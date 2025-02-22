@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useWindowSize } from "@/utils";
+import { SideElement } from "./SideElement";
 import { WelcomeScreen } from "../Animations";
 import { Card } from "../Card";
-import { SideElement } from "./SideElement";
-import { useWindowSize } from "@/utils";
 import { Github, LinkedIn } from "../SVG";
+import { SOCIAL_LINKS } from "./data";
 
 export function HeroSection() {
   const [showAnimation, setShowAnimation] = useState(false);
@@ -24,33 +25,17 @@ export function HeroSection() {
       {windowSize.width >= 900 && (
         <SideElement orientation="left">
           <ul className="flex flex-col gap-4">
-            <li>
-              <a
-                target="_blank"
-                href="/resume.pdf"
-                className="p-4 text-text text-sm sideways-lr tracking-widest hover:text-primary"
-              >
-                Resume
-              </a>
-            </li>
-            <li>
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/in/rakshit-agrawal-a1883b192/"
-                className="p-4 text-text sideways-lr tracking-widest hover:text-primary"
-              >
-                <LinkedIn />
-              </a>
-            </li>
-            <li>
-              <a
-                target="_blank"
-                href="https://github.com/rakshitweb"
-                className="p-4 text-text sideways-lr tracking-widest hover:text-primary"
-              >
-                <Github />
-              </a>
-            </li>
+            {SOCIAL_LINKS.map((link) => (
+              <li key={link.id}>
+                <a
+                  target="_blank"
+                  href={link.link}
+                  className="p-4 text-text text-sm sideways-lr tracking-widest hover:text-primary"
+                >
+                  {link.node || link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </SideElement>
       )}
